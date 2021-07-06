@@ -1,0 +1,15 @@
+package BoardLayer;
+
+public class Piece {
+    protected Position position;
+    private Board board;
+    
+    public Piece (Board board){
+        this.board = board;
+        //posição é nula por padrão Java
+    }
+
+    protected Board getBoard() {
+        return board;
+    }
+}
