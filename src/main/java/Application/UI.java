@@ -1,5 +1,6 @@
 package Application;
 
+import Chess.ChessMatch;
 import Chess.ChessPiece;
 import Chess.ChessPosition;
 import Chess.Color;
@@ -39,8 +40,15 @@ public class UI {
             int row = Integer.parseInt(s.substring(1));
             return new ChessPosition(column, row);
         } catch (RuntimeException e) {
-            throw new InputMismatchException("Erro! Posição inválida, válido somente de a1 à h8.");
+            throw new InputMismatchException("Erro! Posicao invalida, valido somente de a1 a h8.");
         }
+    }
+    
+    public static void printMatch(ChessMatch chessMatch){
+        printBoard(chessMatch.getPieces());
+        System.out.println();
+        System.out.println("Turn: " + chessMatch.getTurn());
+        System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
     }
 
     public static void printBoard(ChessPiece[][] piece) {
