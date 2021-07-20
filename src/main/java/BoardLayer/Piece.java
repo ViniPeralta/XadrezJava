@@ -6,7 +6,7 @@ public class Piece {
     
     public Piece (Board board){
         this.board = board;
-        //posição é nula por padrão Java
+        position = null;
     }
 
     protected Board getBoard() {
