@@ -25,19 +25,25 @@ public class Program {
                 System.out.println("");
                 System.out.println("Posicao da peca: ");
                 ChessPosition source = UI.readChessPosition(sc);
-                
+
                 boolean[][] possibleMoves = match.possibleMoves(source);
                 UI.clearScreen();
                 UI.printBoard(match.getPieces(), possibleMoves);
-                
+
                 System.out.println("");
                 System.out.println("Posicao destino: ");
                 ChessPosition target = UI.readChessPosition(sc);
 
                 ChessPiece capturedPiece = match.performChessMove(source, target);
-                
-                if(capturedPiece != null){
+
+                if (capturedPiece != null) {
                     captured.add(capturedPiece);
+                }
+
+                if (match.getPromoted() != null) {
+                    System.out.println("Digite a peca para promocao (B/N/R/Q): ");
+                    String type = sc.nextLine();
+                    match.replacePromotedPiece(type);  
                 }
             } catch (ChessException e) {
                 System.out.println(e.getMessage());
